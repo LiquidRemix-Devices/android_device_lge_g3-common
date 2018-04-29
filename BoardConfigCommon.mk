@@ -83,9 +83,6 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
-
 # HIDL
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE := $(LOCAL_PATH)/configs/compatibility_matrix.xml
