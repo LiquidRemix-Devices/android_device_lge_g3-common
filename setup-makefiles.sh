@@ -37,7 +37,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 
 # Copyright headers and common guards
-write_headers "g3 d850 d851 d852 d855 ls990 vs985 f400"
+write_headers "g3 g3ds d850 d851 d852 d855 ls990 vs985 f400"
 
 # The common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
