@@ -1,3 +1,5 @@
+#Compile this library only for builds with the latest modem image
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -34,14 +36,12 @@ LOCAL_SRC_FILES += \
 
 LOCAL_CFLAGS += \
      -fno-short-enums \
-     -D_ANDROID_ \
-     -Wno-unused-parameter
+     -D_ANDROID_
 
 LOCAL_C_INCLUDES:= \
     $(TARGET_OUT_HEADERS)/gps.utils \
     $(TARGET_OUT_HEADERS)/libloc_core \
-    $(LOCAL_PATH) \
-    $(TARGET_OUT_HEADERS)/libflp
+    $(LOCAL_PATH)
 
 LOCAL_COPY_HEADERS_TO:= libloc_eng/
 LOCAL_COPY_HEADERS:= \
@@ -85,8 +85,7 @@ LOCAL_SRC_FILES += \
 
 LOCAL_CFLAGS += \
     -fno-short-enums \
-     -D_ANDROID_ \
-     -Wno-unused-parameter
+    -D_ANDROID_ \
 
 ifeq ($(TARGET_USES_QCOM_BSP), true)
 LOCAL_CFLAGS += -DTARGET_USES_QCOM_BSP
@@ -96,7 +95,10 @@ endif
 LOCAL_C_INCLUDES:= \
     $(TARGET_OUT_HEADERS)/gps.utils \
     $(TARGET_OUT_HEADERS)/libloc_core \
-    $(TARGET_OUT_HEADERS)/libflp
+    $(LOCAL_PATH)/include
+
+LOCAL_CFLAGS += \
+    -DMODEM_POWER_VOTE
 
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_RELATIVE_PATH := hw
